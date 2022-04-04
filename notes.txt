@@ -1,0 +1,53 @@
+
+--- Installation Notes ---
+C : sudo apt install build-essential
+Rust : curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+Go : wget https://go.dev/dl/go1.18.linux-amd64.tar.gz, extract file and configure $PATH
+C# (Mono) : sudo apt install mono-complete
+C# (.NET for Linux) : wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb, sudo apt update, sudo apt install dotnet-sdk-6.0
+Java (OpenJDK) : sudo apt install openjdk-17-jdk
+Java (OracleJDK) : wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb, sudo dpkg -i jdk-17_linux-x64_bin.deb, sudo apt install -f
+PHP : sudo apt install php-cli
+
+--- Build Notes ---
+mkdir tmp
+gcc test01/test01.c -o tmp/test01_c
+rustc test01/test01.rs -o tmp/test01_rs
+go build -o tmp/test01_go test01/test01.go
+mcs -out:tmp/test01.exe test01/test01_mono.cs
+cp test.csproj test01/test01_ms.cs tmp && dotnet publish -c Release -r linux-x64 --no-self-contained /p:PublishSingleFile=true tmp/test.csproj 
+/usr/lib/jvm/java-17-openjdk-amd64/bin/javac test01/test01.java -d tmp
+/usr/lib/jvm/jdk-17/bin/javac test01/test01.java -d tmp
+
+--- Hardware Setup ---
+$ inxi -CDSM
+System:    Host: x Kernel: 5.13.0-39-generic x86_64 bits: 64 Desktop: Gnome 3.36.9 Distro: Ubuntu 20.04.4 LTS (Focal Fossa) 
+Machine:   Type: Laptop System: Micro-Star product: GS66 Stealth 10SE v: REV:1.0 serial: <superuser/root required> 
+           Mobo: Micro-Star model: MS-16V1 v: REV:1.0 serial: <superuser/root required> UEFI: American Megatrends 
+           v: E16V1IMS.112 date: 11/19/2020 
+CPU:       Topology: 6-Core model: Intel Core i7-10750H bits: 64 type: MT MCP L2 cache: 12.0 MiB 
+           Speed: 2601 MHz max: 2600 MHz Core speeds (MHz): 1: 2600 2: 2600 3: 2601 4: 2600 5: 2601 6: 2601 7: 2600 8: 2601 
+           9: 2601 10: 2600 11: 2587 12: 2602 
+Drives:    Local Storage: total: 476.94 GiB used: 78.73 GiB (16.5%) 
+           ID-1: /dev/nvme0n1 vendor: Western Digital model: PC SN530 SDBPNPZ-512G-1032 size: 476.94 GiB 
+
+*** Note : CPU clock frequency fixed to 2.6GHz
+
+--- Compiler Versions ---
+$ gcc --version | head -1
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+$ rustc -V
+rustc 1.59.0 (9d1b2106e 2022-02-23)
+$ go version
+go version go1.18 linux/amd64
+$ mono --version | head -1
+Mono JIT compiler version 6.8.0.105 (Debian 6.8.0.105+dfsg-2 Wed Feb 26 23:23:50 UTC 2020)
+$ echo "Microsoft .NET SDK "$(dotnet --version)
+Microsoft .NET SDK 6.0.201
+$ /usr/lib/jvm/java-17-openjdk-amd64/bin/java -version 2>&1 | head -1
+openjdk version "17.0.2" 2022-01-18
+$ /usr/lib/jvm/jdk-17/bin/java -version 2>&1 | head -1
+java version "17.0.2" 2022-01-18 LTS
+$ php -v | head -1
+PHP 7.4.3 (cli) (built: Mar  2 2022 15:36:52) ( NTS )
+
