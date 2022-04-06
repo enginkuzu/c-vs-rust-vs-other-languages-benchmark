@@ -11,13 +11,13 @@ PHP : sudo apt install php-cli
 
 --- Build Notes ---
 mkdir tmp
-gcc test01/test01.c -o tmp/test01_c
-rustc test01/test01.rs -o tmp/test01_rs
-go build -o tmp/test01_go test01/test01.go
-mcs -out:tmp/test01.exe test01/test01_mono.cs
-cp test.csproj test01/test01_ms.cs tmp && dotnet publish -c Release -r linux-x64 --no-self-contained /p:PublishSingleFile=true tmp/test.csproj 
-/usr/lib/jvm/java-17-openjdk-amd64/bin/javac test01/test01.java -d tmp
-/usr/lib/jvm/jdk-17/bin/javac test01/test01.java -d tmp
+gcc test01/test.c -o tmp/test_c
+rustc test01/test.rs -o tmp/test_rs
+go build -o tmp/test_go test01/test.go
+mcs -out:tmp/test.exe test01/test_mono.cs
+cp test.csproj test01/test_ms.cs tmp && dotnet publish -c Release -r linux-x64 --no-self-contained /p:PublishSingleFile=true tmp/test.csproj 
+/usr/lib/jvm/java-17-openjdk-amd64/bin/javac test01/test.java -d tmp
+/usr/lib/jvm/jdk-17/bin/javac test01/test.java -d tmp
 
 --- Hardware Setup ---
 $ inxi -CDSM
