@@ -36,8 +36,16 @@ openjdk     0m0,103s    0m0,044s
 oraclejdk   0m0,094s    0m0,044s
 php         0m0,010s    0m0,009s
 ```
-### Test02 : Hello world : Memory usage
+### Test02 : Hello world : Memory usage (Private + Shared = Total)
 ```
+gcc          96.0 KiB +  10.5 KiB = 106.5 KiB
+rust        428.0 KiB +  14.5 KiB = 442.5 KiB
+go            1.7 MiB +   0.5 KiB =   1.7 MiB
+mono         14.4 MiB +  56.5 KiB =  14.5 MiB
+ms dotnet     4.3 MiB +   8.1 MiB =  12.4 MiB
+openjdk      35.4 MiB +  89.5 KiB =  35.5 MiB
+oraclejdk    35.3 MiB +  39.5 KiB =  35.4 MiB
+php           8.3 MiB + 964.5 KiB =   9.3 MiB
 ```
 ### Test03 : Inner loops and calculation (optimizations possible) : run time
 ```
