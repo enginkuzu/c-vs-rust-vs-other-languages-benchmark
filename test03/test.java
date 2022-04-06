@@ -1,4 +1,4 @@
-public class test02 {
+public class test {
     public static void main(String args[]) {
         long sum = 0;
         for(int i=0;i<25000;i++){
