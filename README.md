@@ -12,14 +12,18 @@ oraclejdk   0m0,595s    0m0,482s
 ```
 ### Test01 : Hello world : File size in bytes
 ```
-gcc            16696
-rust         3585816
-go           1754209
-mono            3072
-ms dotnet     147624
-openjdk          418
-oraclejdk        418
-php               35
+gcc                       16696
+gcc (stripped)            14472
+rust                    3585800
+rust (stripped)          309568
+go                      1754233
+go (stripped)           1176344
+mono                       3072
+ms dotnet                147624
+ms dotnet (stripped)     142632 (don't strip, file corrupted !!!)
+openjdk                     418
+oraclejdk                   418
+php                          35
 ```
 ### Test01 : Hello world : First and second run time
 ```
