@@ -36,7 +36,10 @@ openjdk     0m0,103s    0m0,044s
 oraclejdk   0m0,094s    0m0,044s
 php         0m0,010s    0m0,009s
 ```
-### Test02 : Inner loops and calculation (optimizations possible) : run time
+### Test02 : Hello world : Memory usage
+```
+```
+### Test03 : Inner loops and calculation (optimizations possible) : run time
 ```
 gcc         0m1,800s
 gcc -O1     0m0,242s
@@ -49,6 +52,6 @@ openjdk     0m0,419s
 oraclejdk   0m0,417s
 php         0m13,152s
 ```
-### Test03 : Inner loops and calculation (optimizations hard) : run time
+### Test04 : Inner loops and calculation (optimizations hard) : run time
 ```
 ```
