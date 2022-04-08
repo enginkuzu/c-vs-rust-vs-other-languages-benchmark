@@ -1,6 +1,7 @@
 
 --- Installation Notes ---
 C : sudo apt install build-essential
+Clang : sudo apt install clang
 Rust : curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Go : wget https://go.dev/dl/go1.18.linux-amd64.tar.gz, extract file and configure $PATH
 C# (Mono) : sudo apt install mono-complete
@@ -11,31 +12,36 @@ PHP : sudo apt install php-cli
 
 --- Build Notes ---
 mkdir tmp
-gcc test01/test.c -o tmp/test_c
+gcc test01/test.c -o tmp/test_gcc
+clang test01/test.c -o tmp/test_clang
 rustc test01/test.rs -o tmp/test_rs
 go build -o tmp/test_go test01/test.go
 mcs -out:tmp/test.exe test01/test_mono.cs
-cp test.csproj test01/test_ms.cs tmp && dotnet publish -c Release -r linux-x64 --no-self-contained /p:PublishSingleFile=true tmp/test.csproj 
+cp test.csproj test01/test_ms.cs tmp && dotnet publish -c Release -r linux-x64 --no-self-contained /p:PublishSingleFile=true tmp/test.csproj && cp tmp/bin/Release/net6.0/linux-x64/publish/test tmp/test_ms && rm -rf tmp/bin tmp/obj tmp/test.csproj tmp/test_ms.cs
 /usr/lib/jvm/java-17-openjdk-amd64/bin/javac test01/test.java -d tmp
 /usr/lib/jvm/jdk-17/bin/javac test01/test.java -d tmp
 
 --- Hardware Setup ---
-$ inxi -CDSM
+$ inxi -CDSMm
 System:    Host: x Kernel: 5.13.0-39-generic x86_64 bits: 64 Desktop: Gnome 3.36.9 Distro: Ubuntu 20.04.4 LTS (Focal Fossa) 
 Machine:   Type: Laptop System: Micro-Star product: GS66 Stealth 10SE v: REV:1.0 serial: <superuser/root required> 
            Mobo: Micro-Star model: MS-16V1 v: REV:1.0 serial: <superuser/root required> UEFI: American Megatrends 
            v: E16V1IMS.112 date: 11/19/2020 
+Memory:    RAM: total: 15.44 GiB used: 966.3 MiB (6.1%) 
+           RAM Report: permissions: Unable to run dmidecode. Root privileges required. 
 CPU:       Topology: 6-Core model: Intel Core i7-10750H bits: 64 type: MT MCP L2 cache: 12.0 MiB 
-           Speed: 2601 MHz max: 2600 MHz Core speeds (MHz): 1: 2600 2: 2600 3: 2601 4: 2600 5: 2601 6: 2601 7: 2600 8: 2601 
-           9: 2601 10: 2600 11: 2587 12: 2602 
-Drives:    Local Storage: total: 476.94 GiB used: 78.73 GiB (16.5%) 
+           Speed: 800 MHz min/max: 800/5000 MHz Core speeds (MHz): 1: 1438 2: 4571 3: 3824 4: 3207 5: 1176 6: 2039 7: 1143 
+           8: 800 9: 800 10: 800 11: 800 12: 800 
+Drives:    Local Storage: total: 476.94 GiB used: 81.19 GiB (17.0%) 
            ID-1: /dev/nvme0n1 vendor: Western Digital model: PC SN530 SDBPNPZ-512G-1032 size: 476.94 GiB 
 
-*** Note : CPU clock frequency fixed to 2.6GHz
+*** Note : CPU clock frequency fixed to 2.6GHz while benchmarking
 
 --- Compiler Versions ---
 $ gcc --version | head -1
 gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+$ clang --version | head -1
+clang version 10.0.0-4ubuntu1
 $ rustc -V
 rustc 1.59.0 (9d1b2106e 2022-02-23)
 $ go version
@@ -53,6 +59,7 @@ PHP 7.4.3 (cli) (built: Mar  2 2022 15:36:52) ( NTS )
 
 --- Some Tools ---
 Memory usage report tool : ps_mem.py
+CPU frequency tool : cpupower-gui
 
 
 
