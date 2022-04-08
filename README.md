@@ -62,4 +62,15 @@ php         0m13,152s
 ```
 ### Test04 : Inner loops and calculation (optimizations hard) : run time
 ```
+gcc         0m1,963s
+gcc -O1     0m0,242s
+gcc -O2     0m0,242s
+gcc -O3     0m0,197s
+rust        0m17,657s
+go          0m0,484s
+mono        0m0,991s
+ms dotnet   0m0,530s
+openjdk     0m0,423s
+oraclejdk   0m0,421s
+php         0m13,146s
 ```
