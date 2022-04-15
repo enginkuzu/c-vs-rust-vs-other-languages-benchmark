@@ -28,7 +28,7 @@ openjdk                     418
 oraclejdk                   418
 php                          35
 ```
-### Test01 : Hello world : First and second run time
+### Test01 : Hello world : First and second execution time
 ```
 gcc         0m0,001s    0m0,001s
 clang       0m0,001s    0m0,001s
@@ -52,7 +52,7 @@ openjdk      35.4 MiB +  89.5 KiB =  35.5 MiB
 oraclejdk    35.3 MiB +  39.5 KiB =  35.4 MiB
 php           8.3 MiB + 964.5 KiB =   9.3 MiB
 ```
-### Test03 : Inner loops and calculation (optimizations possible) : run time
+### Test03 : Inner loops and calculation (optimizations possible) : Execution time
 ```
 gcc         0m1,800s
 gcc -O1     0m0,242s
@@ -67,7 +67,7 @@ openjdk     0m0,419s
 oraclejdk   0m0,417s
 php         0m13,152s
 ```
-### Test04 : Inner loops and calculation (optimizations hard) : run time
+### Test04 : Inner loops and calculation (optimizations hard) : Execution time
 ```
 gcc         0m1,963s
 gcc -O1     0m0,242s
@@ -82,4 +82,26 @@ ms dotnet   0m0,530s
 openjdk     0m0,423s
 oraclejdk   0m0,421s
 php         0m13,146s
+```
+### Test05 : HashMap put and get operations : Execution times
+```
+gcc         1170 ms     340 ms
+rust        31253 ms    15862 ms
+go          4394 ms     1837 ms
+mono        1404 ms     477 ms
+ms dotnet   1023 ms     208 ms
+openjdk     1804 ms     445 ms
+oraclejdk   1777 ms     432 ms
+php         1187 ms     432 ms
+```
+### Test05 : HashMap put operation : Memory usage (Private + Shared = Total)
+```
+gcc         384.3 MiB +  24.5 KiB = 384.3 MiB
+rust        288.5 MiB +  20.5 KiB = 288.5 MiB
+go          707.3 MiB +   0.5 KiB = 707.3 MiB
+mono          1.2 GiB +  78.5 KiB =   1.2 GiB
+ms dotnet   959.2 MiB +   1.0 MiB = 960.2 MiB
+openjdk       2.2 GiB + 105.5 KiB =   2.2 GiB
+oraclejdk     2.1 GiB +  51.5 KiB =   2.1 GiB
+php         772.4 MiB +   1.1 MiB = 773.5 MiB
 ```
