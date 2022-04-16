@@ -4,6 +4,7 @@ C : sudo apt install build-essential
 Clang : sudo apt install clang
 Rust : curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Go : wget https://go.dev/dl/go1.18.linux-amd64.tar.gz, extract file and configure $PATH
+GccGo : sudo apt install gccgo
 C# (Mono) : sudo apt install mono-complete
 C# (.NET for Linux) : wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb, sudo apt update, sudo apt install dotnet-sdk-6.0
 Java (OpenJDK) : sudo apt install openjdk-17-jdk
@@ -16,6 +17,7 @@ gcc test01/test.c -o tmp/test_gcc
 clang test01/test.c -o tmp/test_clang
 rustc test01/test.rs -o tmp/test_rs
 go build -o tmp/test_go test01/test.go
+gccgo test01/test.go -o tmp/test_gccgo
 mcs -out:tmp/test.exe test01/test_mono.cs
 cp test.csproj test01/test_ms.cs tmp && dotnet publish -c Release -r linux-x64 --no-self-contained /p:PublishSingleFile=true tmp/test.csproj && cp tmp/bin/Release/net6.0/linux-x64/publish/test tmp/test_ms && rm -rf tmp/bin tmp/obj tmp/test.csproj tmp/test_ms.cs
 /usr/lib/jvm/java-17-openjdk-amd64/bin/javac test01/test.java -d tmp
@@ -46,6 +48,8 @@ $ rustc -V
 rustc 1.59.0 (9d1b2106e 2022-02-23)
 $ go version
 go version go1.18 linux/amd64
+$ gccgo --version | head -1
+gccgo (Ubuntu 10.3.0-1ubuntu1~20.04) 10.3.0
 $ mono --version | head -1
 Mono JIT compiler version 6.8.0.105 (Debian 6.8.0.105+dfsg-2 Wed Feb 26 23:23:50 UTC 2020)
 $ echo "Microsoft .NET SDK "$(dotnet --version)

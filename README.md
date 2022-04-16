@@ -6,6 +6,7 @@ gcc         0m0,085s    0m0,035s
 clang       0m0,207s    0m0,086s
 rust        0m0,499s    0m0,222s
 go          0m0,313s    0m0,067s
+gccgo       0m0,179s    0m0,135s
 mono        0m0,216s    0m0,186s
 ms dotnet   0m3,140s    0m1,596s
 openjdk     0m0,583s    0m0,485s
@@ -21,6 +22,8 @@ rust                    3585800
 rust (stripped)          309568
 go                      1754233
 go (stripped)           1176344
+gccgo                     51360
+gccgo (stripped)          36520
 mono                       3072
 ms dotnet                147624
 ms dotnet (stripped)     142632 (file corrupted !!!)
@@ -34,6 +37,7 @@ gcc         0m0,001s    0m0,001s
 clang       0m0,001s    0m0,001s
 rust        0m0,002s    0m0,001s
 go          0m0,003s    0m0,001s
+gccgo       0m0,030s    0m0,015s
 mono        0m0,032s    0m0,024s
 ms dotnet   0m0,110s    0m0,060s
 openjdk     0m0,103s    0m0,044s
@@ -46,6 +50,7 @@ gcc          96.0 KiB +  10.5 KiB = 106.5 KiB
 clang        92.0 KiB +  11.5 KiB = 103.5 KiB
 rust        428.0 KiB +  14.5 KiB = 442.5 KiB
 go            1.7 MiB +   0.5 KiB =   1.7 MiB
+gccgo        19.2 MiB +  29.5 KiB =  19.2 MiB
 mono         14.4 MiB +  56.5 KiB =  14.5 MiB
 ms dotnet     4.3 MiB +   8.1 MiB =  12.4 MiB
 openjdk      35.4 MiB +  89.5 KiB =  35.5 MiB
@@ -61,6 +66,9 @@ clang       0m1,794s
 clang -O1   0m0,001s
 rust        0m16,970s
 go          0m0,484s
+gccgo       0m1,794s
+gccgo -O1   0m0,257s
+gccgo -O2   0m0,015s
 mono        0m0,827s
 ms dotnet   0m0,543s
 openjdk     0m0,419s
@@ -77,6 +85,9 @@ clang       0m1,782s
 clang -O1   0m0,001s
 rust        0m17,657s
 go          0m0,484s
+gccgo       0m1,739s
+gccgo -O1   0m0,256s
+gccgo -O2   0m0,015s
 mono        0m0,991s
 ms dotnet   0m0,530s
 openjdk     0m0,423s
@@ -88,6 +99,7 @@ php         0m13,146s
 gcc         1170 ms     340 ms
 rust        31253 ms    15862 ms
 go          4394 ms     1837 ms
+gccgo       4959 ms     2799 ms
 mono        1404 ms     477 ms
 ms dotnet   1023 ms     208 ms
 openjdk     1804 ms     445 ms
@@ -99,6 +111,7 @@ php         1187 ms     432 ms
 gcc         384.3 MiB +  24.5 KiB = 384.3 MiB
 rust        288.5 MiB +  20.5 KiB = 288.5 MiB
 go          707.3 MiB +   0.5 KiB = 707.3 MiB
+gccgo       737.9 MiB +  33.5 KiB = 737.9 MiB
 mono          1.2 GiB +  78.5 KiB =   1.2 GiB
 ms dotnet   959.2 MiB +   1.0 MiB = 960.2 MiB
 openjdk       2.2 GiB + 105.5 KiB =   2.2 GiB
