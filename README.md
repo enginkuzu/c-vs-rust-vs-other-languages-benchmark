@@ -98,7 +98,11 @@ openjdk              0m0,423s
 oraclejdk            0m0,421s
 php                  0m13,146s
 ```
-### Test05 : HashMap put and get operations : Execution times
+### Test05 : Inner loops and calculation (optimizations not possible) : Execution time
+```
+TODO
+```
+### Test06 : HashMap put and get operations : Execution times
 ```
 gcc                  1170 ms     340 ms
 rust                 31253 ms    15862 ms
@@ -112,7 +116,7 @@ openjdk              1804 ms     445 ms
 oraclejdk            1777 ms     432 ms
 php                  1187 ms     432 ms
 ```
-### Test05 : HashMap put operation : Memory usage (Private + Shared = Total)
+### Test06 : HashMap put operation : Memory usage (Private + Shared = Total)
 ```
 gcc         384.3 MiB +  24.5 KiB = 384.3 MiB
 rust        288.5 MiB +  20.5 KiB = 288.5 MiB
