@@ -59,52 +59,58 @@ php           8.3 MiB + 964.5 KiB =   9.3 MiB
 ```
 ### Test03 : Inner loops and calculation (optimizations possible) : Execution time
 ```
-gcc         0m1,800s
-gcc -O1     0m0,242s
-gcc -O2     0m0,001s
-clang       0m1,794s
-clang -O1   0m0,001s
-rust        0m16,970s
-go          0m0,484s
-gccgo       0m1,794s
-gccgo -O1   0m0,257s
-gccgo -O2   0m0,015s
-mono        0m0,827s
-ms dotnet   0m0,543s
-openjdk     0m0,419s
-oraclejdk   0m0,417s
-php         0m13,152s
+gcc                  0m1,800s
+gcc -O1              0m0,242s
+gcc -O2              0m0,001s
+clang                0m1,794s
+clang -O1            0m0,001s
+rust                 0m16,970s
+rust -C opt-level=1  0m1,240s
+rust -C opt-level=2  0m0,001s
+go                   0m0,484s
+gccgo                0m1,794s
+gccgo -O1            0m0,257s
+gccgo -O2            0m0,015s
+mono                 0m0,827s
+ms dotnet            0m0,543s
+openjdk              0m0,419s
+oraclejdk            0m0,417s
+php                  0m13,152s
 ```
 ### Test04 : Inner loops and calculation (optimizations hard) : Execution time
 ```
-gcc         0m1,963s
-gcc -O1     0m0,242s
-gcc -O2     0m0,242s
-gcc -O3     0m0,197s
-clang       0m1,782s
-clang -O1   0m0,001s
-rust        0m17,657s
-go          0m0,484s
-gccgo       0m1,739s
-gccgo -O1   0m0,256s
-gccgo -O2   0m0,015s
-mono        0m0,991s
-ms dotnet   0m0,530s
-openjdk     0m0,423s
-oraclejdk   0m0,421s
-php         0m13,146s
+gcc                  0m1,963s
+gcc -O1              0m0,242s
+gcc -O2              0m0,242s
+gcc -O3              0m0,197s
+clang                0m1,782s
+clang -O1            0m0,001s
+rust                 0m17,657s
+rust -C opt-level=1  0m1,021s
+rust -C opt-level=2  0m0,001s
+go                   0m0,484s
+gccgo                0m1,739s
+gccgo -O1            0m0,256s
+gccgo -O2            0m0,015s
+mono                 0m0,991s
+ms dotnet            0m0,530s
+openjdk              0m0,423s
+oraclejdk            0m0,421s
+php                  0m13,146s
 ```
 ### Test05 : HashMap put and get operations : Execution times
 ```
-gcc         1170 ms     340 ms
-rust        31253 ms    15862 ms
-go          4394 ms     1837 ms
-gccgo       4959 ms     2799 ms
-mono        1404 ms     477 ms
-ms dotnet   1023 ms     208 ms
-openjdk     1804 ms     445 ms
-oraclejdk   1777 ms     432 ms
-php         1187 ms     432 ms
+gcc                  1170 ms     340 ms
+rust                 31253 ms    15862 ms
+rust -C opt-level=1  3206 ms     2885 ms
+rust -C opt-level=2  3031 ms     2762 ms
+go                   4394 ms     1837 ms
+gccgo                4959 ms     2799 ms
+mono                 1404 ms     477 ms
+ms dotnet            1023 ms     208 ms
+openjdk              1804 ms     445 ms
+oraclejdk            1777 ms     432 ms
+php                  1187 ms     432 ms
 ```
 ### Test05 : HashMap put operation : Memory usage (Private + Shared = Total)
 ```
