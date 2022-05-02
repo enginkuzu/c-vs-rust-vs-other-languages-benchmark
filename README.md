@@ -100,7 +100,28 @@ php                  0m13,146s
 ```
 ### Test05 : Inner loops and calculation (optimizations not possible) : Execution time
 ```
-TODO
+gcc                  0m1,944s
+gcc -O1              0m0,242s
+gcc -O2              0m0,242s
+gcc -O3              0m0,197s
+clang                0m1,784s
+clang -O1            0m0,242s
+clang -O2            0m0,242s
+clang -O3            0m0,242s
+rust                 0m17,535s
+rust -C opt-level=1  0m1,246s
+rust -C opt-level=2  0m0,242s
+rust -C opt-level=3  0m0,242s
+go                   0m0,484s
+gccgo                0m1,717s
+gccgo -O1            0m0,257s
+gccgo -O2            0m0,498s
+gccgo -O3            0m0,212s
+mono                 0m0,990s
+ms dotnet            0m0,550s
+openjdk              0m0,424s
+oraclejdk            0m0,424s
+php                  0m13,146s
 ```
 ### Test06 : HashMap put and get operations : Execution times
 ```
