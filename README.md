@@ -11,6 +11,7 @@ mono        0m0,216s    0m0,186s
 ms dotnet   0m3,140s    0m1,596s
 openjdk     0m0,583s    0m0,485s
 oraclejdk   0m0,595s    0m0,482s
+crystal     0m0.753s    0m0.502s
 ```
 ### Test01 : Hello world : File size in bytes
 ```
@@ -30,6 +31,8 @@ ms dotnet (stripped)     142632 (file corrupted !!!)
 openjdk                     418
 oraclejdk                   418
 php                          35
+crystal                  615776
+crystal (stripped)       216096
 ```
 ### Test01 : Hello world : First and second execution time
 ```
@@ -43,6 +46,7 @@ ms dotnet   0m0,110s    0m0,060s
 openjdk     0m0,103s    0m0,044s
 oraclejdk   0m0,094s    0m0,044s
 php         0m0,010s    0m0,009s
+crystal     0m0.005s    0m0.005s
 ```
 ### Test02 : Hello world : Memory usage (Private + Shared = Total)
 ```
@@ -56,6 +60,7 @@ ms dotnet     4.3 MiB +   8.1 MiB =  12.4 MiB
 openjdk      35.4 MiB +  89.5 KiB =  35.5 MiB
 oraclejdk    35.3 MiB +  39.5 KiB =  35.4 MiB
 php           8.3 MiB + 964.5 KiB =   9.3 MiB
+crystal     996.0 KiB +  19.5 KiB =   1.0 MiB
 ```
 ### Test03 : Inner loops and calculation (optimizations possible) : Execution time
 ```
