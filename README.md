@@ -12,27 +12,38 @@ ms dotnet   0m3,140s    0m1,596s
 openjdk     0m0,583s    0m0,485s
 oraclejdk   0m0,595s    0m0,482s
 crystal     0m0.753s    0m0.502s
+erlang      0m0.166s    0m0.164s
+zig         0m1.034s    0m0.893s
 ```
 ### Test01 : Hello world : File size in bytes
 ```
-gcc                       16696
-gcc (stripped)            14472
-clang                     16456
-clang (stripped)          14384
-rust                    3585800
-rust (stripped)          309568
-go                      1754233
-go (stripped)           1176344
-gccgo                     51360
-gccgo (stripped)          36520
-mono                       3072
-ms dotnet                147624
-ms dotnet (stripped)     142632 (file corrupted !!!)
-openjdk                     418
-oraclejdk                   418
-php                          35
-crystal                  615776
-crystal (stripped)       216096
+gcc                            16696
+gcc (stripped)                 14472
+clang                          16456
+clang (stripped)               14384
+rust                         3585800
+rust (stripped)               309568
+go                           1754233
+go (stripped)                1176344
+gccgo                          51360
+gccgo (stripped)               36520
+mono                            3072
+ms dotnet                     147624
+ms dotnet (stripped)          142632 (file corrupted !!!)
+openjdk                          418
+oraclejdk                        418
+php                               35
+crystal                       615776
+crystal (stripped)            216096
+erlang                           744
+zig (Debug)                  1897552
+zig (Debug, stripped)         598624
+zig (ReleaseSafe)            1944776
+zig (ReleaseSafe, stripped)   228320
+zig (ReleaseSmall)              8856
+zig (ReleaseSmall, stripped)    7816
+zig (ReleaseFast)            1710376
+zig (ReleaseFast, stripped)   170800
 ```
 ### Test01 : Hello world : First and second execution time
 ```
@@ -47,6 +58,8 @@ openjdk     0m0,103s    0m0,044s
 oraclejdk   0m0,094s    0m0,044s
 php         0m0,010s    0m0,009s
 crystal     0m0.005s    0m0.005s
+erlang      0m1.101s    0m1.101s
+zig         0m0.004s    0m0.002s
 ```
 ### Test02 : Hello world : Memory usage (Private + Shared = Total)
 ```

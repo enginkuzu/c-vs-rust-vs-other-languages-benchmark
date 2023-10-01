@@ -1,4 +1,24 @@
 
+--- Hardware Setup ---
+$ inxi -CDSMm
+System:    Host: x Kernel: 5.13.0-39-generic x86_64 bits: 64 Desktop: Gnome 3.36.9 Distro: Ubuntu 20.04.4 LTS (Focal Fossa)
+Machine:   Type: Laptop System: Micro-Star product: GS66 Stealth 10SE v: REV:1.0 serial: <superuser/root required>
+           Mobo: Micro-Star model: MS-16V1 v: REV:1.0 serial: <superuser/root required> UEFI: American Megatrends
+           v: E16V1IMS.112 date: 11/19/2020
+Memory:    RAM: total: 15.44 GiB used: 966.3 MiB (6.1%)
+           RAM Report: permissions: Unable to run dmidecode. Root privileges required.
+CPU:       Topology: 6-Core model: Intel Core i7-10750H bits: 64 type: MT MCP L2 cache: 12.0 MiB
+           Speed: 800 MHz min/max: 800/5000 MHz Core speeds (MHz): 1: 1438 2: 4571 3: 3824 4: 3207 5: 1176 6: 2039 7: 1143
+           8: 800 9: 800 10: 800 11: 800 12: 800
+Drives:    Local Storage: total: 476.94 GiB used: 81.19 GiB (17.0%)
+           ID-1: /dev/nvme0n1 vendor: Western Digital model: PC SN530 SDBPNPZ-512G-1032 size: 476.94 GiB
+
+*** Note : CPU clock frequency fixed to 2.6GHz while benchmarking
+
+--- Some Tools ---
+Memory usage report tool : ps_mem.py
+CPU frequency tool : cpupower-gui
+
 --- Installation Notes ---
 C : sudo apt install build-essential
 Clang : sudo apt install clang
@@ -11,6 +31,8 @@ Java (OpenJDK) : sudo apt install openjdk-17-jdk
 Java (OracleJDK) : wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb, sudo dpkg -i jdk-17_linux-x64_bin.deb, sudo apt install -f
 PHP : sudo apt install php-cli
 Crystal : sudo apt install crystal
+Erlang : sudo apt install erlang
+Zig : (manual setup)
 
 --- Build Notes ---
 mkdir tmp
@@ -24,22 +46,8 @@ cp test.csproj test01/test_ms.cs tmp && dotnet publish -c Release -r linux-x64 -
 /usr/lib/jvm/java-17-openjdk-amd64/bin/javac test01/test.java -d tmp
 /usr/lib/jvm/jdk-17/bin/javac test01/test.java -d tmp
 crystal build --release test.cr
-
---- Hardware Setup ---
-$ inxi -CDSMm
-System:    Host: x Kernel: 5.13.0-39-generic x86_64 bits: 64 Desktop: Gnome 3.36.9 Distro: Ubuntu 20.04.4 LTS (Focal Fossa) 
-Machine:   Type: Laptop System: Micro-Star product: GS66 Stealth 10SE v: REV:1.0 serial: <superuser/root required> 
-           Mobo: Micro-Star model: MS-16V1 v: REV:1.0 serial: <superuser/root required> UEFI: American Megatrends 
-           v: E16V1IMS.112 date: 11/19/2020 
-Memory:    RAM: total: 15.44 GiB used: 966.3 MiB (6.1%) 
-           RAM Report: permissions: Unable to run dmidecode. Root privileges required. 
-CPU:       Topology: 6-Core model: Intel Core i7-10750H bits: 64 type: MT MCP L2 cache: 12.0 MiB 
-           Speed: 800 MHz min/max: 800/5000 MHz Core speeds (MHz): 1: 1438 2: 4571 3: 3824 4: 3207 5: 1176 6: 2039 7: 1143 
-           8: 800 9: 800 10: 800 11: 800 12: 800 
-Drives:    Local Storage: total: 476.94 GiB used: 81.19 GiB (17.0%) 
-           ID-1: /dev/nvme0n1 vendor: Western Digital model: PC SN530 SDBPNPZ-512G-1032 size: 476.94 GiB 
-
-*** Note : CPU clock frequency fixed to 2.6GHz while benchmarking
+erlc test.erl
+zig build-exe -O <BuildMode> test.zig
 
 --- Compiler Versions ---
 $ gcc --version | head -1
@@ -66,10 +74,8 @@ $ crystal -v
 Crystal 1.6.0 (2022-10-06)
 LLVM: 14.0.6
 Default target: x86_64-pc-linux-gnu
-
---- Some Tools ---
-Memory usage report tool : ps_mem.py
-CPU frequency tool : cpupower-gui
-
-
+$ erl
+Erlang/OTP 25 [erts-13.1.5] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit:ns]
+$ zig version
+0.11.0
 
